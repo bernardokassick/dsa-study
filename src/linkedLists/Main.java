@@ -4,29 +4,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-        LinkedList myLinkedList = new LinkedList(4);
+        LinkedList myLinkedList = new LinkedList(1);
 
-//        myLinkedList.removeLast();
-//        myLinkedList.append(5);
-//        myLinkedList.append(6);
-//        myLinkedList.append(7);
-//        myLinkedList.append(10);
+        myLinkedList.append(2);
+        myLinkedList.append(3);
+        myLinkedList.append(4);
+        myLinkedList.append(5);
 
-        myLinkedList.printList();
-
-        myLinkedList.prepend(8);
-
-
-        myLinkedList.removeLast();
+        myLinkedList.reverseBetween(1,3);
 
 
 
-//        myLinkedList.removeLast();
-//        myLinkedList.getHead();
-//        myLinkedList.getTail();
-//        myLinkedList.getLength();
 
-        myLinkedList.printList();
 
 
 

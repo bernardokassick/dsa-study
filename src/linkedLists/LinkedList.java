@@ -1,5 +1,8 @@
 package linkedLists;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class LinkedList {
 
     class Node {
@@ -26,7 +29,7 @@ public class LinkedList {
     public Node get(int index) {
         if (index < 0 || index >= length) return null;
         Node temp = head;
-        for(int i = 0; i < index; i++) {
+        for (int i = 0; i < index; i++) {
             temp = temp.next;
         }
         return temp;
@@ -40,6 +43,132 @@ public class LinkedList {
         } else {
             return false;
         }
+    }
+
+
+    //TODO - precisa ser finalizado
+    public void partitionList(int x) {
+        if (head == null) {
+            return;
+        }
+        
+    }
+
+    //TODO - precisa ser finalizado
+    public void reverseBetween(int m, int n) {
+        Node inicio = null;
+        Node fim = null;
+
+
+
+        inicio = get(m);
+        fim = get(n);
+
+        Node x = inicio;
+        Node y = fim;
+
+        Node temp = inicio;
+        Node before = null;
+        Node after = x.next;
+
+        for (int i = m; i < n; i++) {
+            after = temp.next;
+            temp.next = before;
+            before = temp;
+            temp = after;
+        }
+
+        printList();
+    }
+
+    public Node findMiddleNode() {
+        Node slow = head;
+        Node fast = head;
+
+        if (head == null) {
+            return null;
+        }
+
+        if (head.next == null) {
+            return head;
+        }
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+
+    }
+
+    public boolean hasLoop() {
+        Node slow = head;
+        Node fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) {
+                return true;
+            }
+        }
+        return false;
+
+    }
+
+    public void removeDuplicates() {
+        Node node = head;
+
+        HashSet<Node> mySet = new HashSet<>();
+        while (node != null) {
+            mySet.add(node);
+            node = node.next;
+        }
+
+    }
+
+    public int binaryToDecimal() {
+        Node node = head;
+        double total = 0;
+        int n = length - 1;
+        while (node != null) {
+            double valorCasa = node.value * Math.pow(2, n);
+            total = total + valorCasa;
+            n--;
+            node = node.next;
+        }
+        return (int) total;
+    }
+
+    public Node findKthFromEnd(int k) {
+        Node slow = head;
+        Node fast = head;
+
+        if (head == null) {
+            return null;
+        }
+        if (head.next == null) {
+            return head;
+        }
+
+        for (int i = 0; i < k; i++) {
+            if (fast == null) return null;
+            fast = fast.next;
+        }
+
+        while (fast != null) {
+            slow = slow.next;
+            fast = fast.next;
+
+        }
+        return slow;
+    }
+
+    public void makeEmpty() {
+        head = null;
+        tail = null;
+        length = 0;
     }
 
     public void append(int value) {
@@ -100,14 +229,14 @@ public class LinkedList {
 
         length--;
 
-        if(length == 0) {
+        if (length == 0) {
             head = null;
             tail = null;
         }
         return temp;
     }
 
-    public boolean insert(int index, int value)  {
+    public boolean insert(int index, int value) {
         if (index < 0 || index > length) return false;
         if (index == 0) {
             prepend(value);
