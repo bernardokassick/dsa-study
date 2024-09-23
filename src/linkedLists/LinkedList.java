@@ -46,6 +46,8 @@ public class LinkedList {
     }
 
 
+
+
     //TODO - precisa ser finalizado
     public void partitionList(int x) {
         if (head == null) {

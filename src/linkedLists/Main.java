@@ -13,12 +13,6 @@ public class Main {
 
         myLinkedList.reverseBetween(1,3);
 
-
-
-
-
-
-
-
     }
+
 }
